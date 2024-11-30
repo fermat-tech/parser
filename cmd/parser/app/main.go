@@ -120,6 +120,6 @@ func realMain() int {
 	return 0
 }
 
-func Main() {
-	os.Exit(realMain())
+func Main() int {
+	return realMain()
 }

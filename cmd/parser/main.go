@@ -1,9 +1,10 @@
 package main
 
 import (
-    "github.com/fermat-tech/parser/cmd/parser/app"
+	"github.com/fermat-tech/parser/cmd/parser/app"
+	"os"
 )
 
 func main() {
-    app.Main()
+	os.Exit(app.Main())
 }
