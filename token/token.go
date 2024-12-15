@@ -206,11 +206,11 @@ func (t *TokenStream) Get() (Token, error) {
 				inEscape = false
 				t.chrStream.get()
 				if chr == 'n' {
-					token.WriteRune('\n')
+					token.WriteString("\\n")
 				} else if chr == 't' {
-					token.WriteRune('\t')
+					token.WriteString("\\t")
 				} else {
-					token.WriteRune(chr)
+					token.WriteString("\\" + string(chr))
 				}
 				continue
 			}

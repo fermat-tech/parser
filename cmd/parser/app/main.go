@@ -12,9 +12,9 @@ import (
 
 func usageAndExit1() {
 	programName := filepath.Base(os.Args[0])
-	posArg1 := "<INPUT_FILE>"
+	positionalArgs := "<INPUT_FILE>..."
 	fmt.Fprintf(os.Stderr, "\n")
-	fmt.Fprintf(os.Stderr, "usage: %v [--help] %s\n", programName, posArg1)
+	fmt.Fprintf(os.Stderr, "usage: %v [--help] %s\n", programName, positionalArgs)
 	fmt.Fprintf(os.Stderr, "\n")
 	os.Exit(1)
 }
@@ -95,7 +95,7 @@ func realMain() int {
 	fs.Usage = usageAndExit1
 	fs.Parse(os.Args[1:])
 	if fs.NArg() == 0 {
-		fmt.Fprintf(os.Stderr, "ERROR: %s\n", "Missing <INPUT_FILE>")
+		fmt.Fprintf(os.Stderr, "ERROR: %s\n", "Missing <INPUT_FILE>...")
 		usageAndExit1()
 	}
 	for _, file := range fs.Args() {
